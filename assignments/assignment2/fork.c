@@ -44,8 +44,7 @@ int main(int argc, char *argv[]) {
       total += WEXITSTATUS(status);
     } else {
       // Handle error
-      fprintf(stderr, "Child process %d did not terminate normally!\n",
-              children[i]);
+      perror("waitpid");
     }
   }
 
