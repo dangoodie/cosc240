@@ -22,7 +22,7 @@ int calculate_value(int value) {
 void *thread_function(void *arg) {
   int index = *(int *)arg; // Convert the void pointer to an integer
   int value = calculate_value(values[index]);
-    
+
   int status;
   status = pthread_mutex_lock(&mutex);
   if (status != 0) {
