@@ -2,10 +2,10 @@
 #include <stdlib.h>
 
 // The values being used by this program
-#define VALUE_MULTIPLIER 2
-#define VALUE_ADDED 1
-#define VALUES_SIZE 5
-int values[] = {5, 7, 2, 4, 9};
+#define VALUE_MULTIPLIER 8
+#define VALUE_ADDED 6
+#define VALUES_SIZE 9
+int values[] = {1, 8, 7, 8, 5, 1, 7, 9, 4};
 
 // The value being calculated by this program
 int total = 0;
