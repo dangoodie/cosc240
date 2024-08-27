@@ -1,22 +1,22 @@
-vals = [1, 8, 7, 8, 5, 1, 7, 9, 4]
+values = [1, 8, 7, 8, 5, 1, 7, 9, 4]
 Vals was determined by using gdb and noting the number that was being used in 
 the eax register. I set a breakpoint at the beginning of the loop and then
 ran the program. I then printed the value in the eax register and noted it down.
 I then continued the program and repeated the process until I had all the values.
 
-multiplier = 8
+VALUE_MULTIPLIER = 8
 The multiplier was determined by seeing that the value in the eax register was 
 being bitshifted to the left by 3. This is equivalent to multiplying by 8. I 
 confirmed this by printing the value in the eax register after the bitshift.
 shl $0x3,%eax
 
-addition = 6
+VALUE_ADDED = 6
 The addition was determined by seeing that the value in the eax register was
 being added by 0x6, which is 6 in decimal. I confirmed this by printing the
 value in the eax register after the addition.
 add $0x6,%eax
 
-length = 9
+VALUES_SIZE = 9
 The length was first determined by seeing that the rbp-0x4 was being compared 
 to 0x8. It was then given a command to jump if the comparison was less than or
 equal to 0x8. I confirmed this by iterating through the loop and noting the
