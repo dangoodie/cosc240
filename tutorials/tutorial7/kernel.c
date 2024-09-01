@@ -1,5 +1,65 @@
+#define IDT_SIZE 256
+
+struct idt_entry {
+  unsigned short int offset_lowerbits;
+  unsigned short int selector;
+  unsigned char zero;
+  unsigned char type_attr;
+  unsigned short int offset_higherbits;
+};
+
+struct idt_entry IDT[IDT_SIZE];
+
 extern char in_port(unsigned short io_port);
 extern void out_port(unsigned short io_port, char value);
+extern void load_idt(unsigned long *idt_ptr);
+
+/* Initialise PICs and load IDT */
+void idt_init(void) {
+  /* ICW1 */
+  out_port(0x20, 0x11);
+  out_port(0xA0, 0x11);
+
+  /* ICW2 */
+  out_port(0x21, 0x20);
+  out_port(0xA1, 0x28);
+
+  /* ICW3 */
+  out_port(0x21, 0x00);
+  out_port(0xA1, 0x00);
+
+  /* ICW4 */
+  out_port(0x21, 0x01);
+  out_port(0xA1, 0x01);
+
+  /* Mask interrupts */
+  out_port(0x21, 0xFF);
+  out_port(0xA1, 0xFF);
+
+  /* Load idt */
+  unsigned long idt_address = (unsigned long)IDT;
+  unsigned long idt_ptr[2];
+  idt_ptr[0] =
+      (sizeof(struct idt_entry) * IDT_SIZE) + ((idt_address & 0xffff) << 16);
+  idt_ptr[1] = idt_address >> 16;
+
+  load_idt(idt_ptr);
+}
+
+void enable_keyboard() {
+  out_port(0x21, 0xFD); // 11111101 enables only 1RQ1 (keyboard)
+}
+
+extern void keyboard_handler(void);
+
+void load_keyboard(void) {
+    unsigned long keyboard_address = (unsigned long)keyboard_handler;
+    IDT[0x21].offset_lowerbits = keyboard_address & 0xffff;
+    IDT[0x21].selector = 0x08; /* KERNEL_CODE_SEGMENT_OFFSET */
+    IDT[0x21].zero = 0;
+    IDT[0x21].type_attr = 0x8e; /* INTERRUPT_GATE */
+    IDT[0x21].offset_higherbits = (keyboard_address & 0xffff0000) >> 16;
+}
 
 unsigned int cursor_position = 0;
 
@@ -55,11 +115,32 @@ void clear_screen() {
   set_cursor(0);
 }
 
+#include "keyboard_map.h"
+
+void keyboard_handler_main(void) {
+    unsigned char status;
+    char keycode;
+
+    /* write EOI */
+    out_port(0x20, 0x20);
+
+    status = in_port(0x64);
+    /* Lowest bit of status will be set if buffer is not empty */
+    if (status & 0x01) {
+        keycode = in_port(0x60);
+        if(keycode < 0)
+            return;
+        char message[2] = {keyboard_map[keycode], '\0'};
+        write(message, 1);
+    }
+}
+
 /* Kernel entry point */
 
 void kmain() {
+  idt_init();
   clear_screen();
-  const char *str = "Hello\nWorld!";
-  set_cursor(100);
-  write_string(str);
+  enable_keyboard();
+  load_keyboard();
+  while (1){};
 }

@@ -10,10 +10,13 @@
 	dd      - (0x1BADB002 + 0x00); checksum. m+f+c should be zero
 
 	global start; Define the program entry point
-	extern kmain; The kernel entry function
 	global in_port; Export the in_port function
 	global out_port; Export the out_port function
+    global load_idt; Export the function to load the IDT
+    global keyboard_handler ; Export the keyboard interrupt handler
 
+	extern kmain; The kernel entry function
+    extern keyboard_handler_main; The keyboard handler function
 start:
 	cli  ; Disable interrupts
 	mov  esp, stack_space; By default, we don't have any stack space - this sets some up for us
@@ -30,6 +33,16 @@ out_port:
 	mov  eax, [esp + 8]; move the second parameter to eax
 	out  dx, al; al is the lower 8 bits of eax, dx is the lower 16 bits of edx
 	ret; return
+
+load_idt:
+    mov edx, [esp + 4]; move the parameter to edx
+    lidt [edx]; load the IDT
+    sti; enable interrupts
+    ret; return
+
+keyboard_handler:
+    call keyboard_handler_main; call the keyboard handler
+    iretd; return from interrupt
 
 	section .bss
 	resb    16384; Reserve 16KB for stack
