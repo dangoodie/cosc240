@@ -3,3 +3,4 @@ timeout=5
 
 title COSC240
 kernel /boot/kernel
+module /modules/program
