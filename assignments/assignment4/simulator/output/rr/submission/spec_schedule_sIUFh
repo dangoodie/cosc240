@@ -1,96 +1,96 @@
 Time	PID
 Process list after adding process with pid 1:
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 0, next_process.pid: 0
 0:	1
 Process list after adding process with pid 2:
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, quantum_time_used: 1 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 0, next_process.pid: 0
 1:	1
 Process list after adding process with pid 3:
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 2, quantum_time_used: 2 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 0, quantum_time_used: 0 next_process.pid: 3
-pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 2, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 0, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, next_process.pid: 0
 2:	1
 Process list after adding process with pid 4:
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 0, quantum_time_used: 0 next_process.pid: 3
-pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, quantum_time_used: 0 next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 0, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, next_process.pid: 1
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 0
 3:	2
 Process list after adding process with pid 5:
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, quantum_time_used: 1 next_process.pid: 3
-pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, quantum_time_used: 0 next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, quantum_time_used: 0 next_process.pid: 5
-pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, next_process.pid: 1
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, next_process.pid: 0
 4:	2
 Process list after adding process with pid 6:
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 2, quantum_time_used: 2 next_process.pid: 3
-pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, quantum_time_used: 0 next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, quantum_time_used: 0 next_process.pid: 5
-pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, quantum_time_used: 0 next_process.pid: 6
-pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 2, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, next_process.pid: 1
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, next_process.pid: 0
 5:	2
 Process list after adding process with pid 7:
-pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, quantum_time_used: 0 next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, quantum_time_used: 0 next_process.pid: 5
-pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, quantum_time_used: 0 next_process.pid: 6
-pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, quantum_time_used: 0 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, quantum_time_used: 0 next_process.pid: 7
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, next_process.pid: 1
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, next_process.pid: 0
 6:	3
 Process list after adding process with pid 8:
-pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, quantum_time_used: 1 next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, quantum_time_used: 0 next_process.pid: 5
-pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, quantum_time_used: 0 next_process.pid: 6
-pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, quantum_time_used: 0 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, quantum_time_used: 0 next_process.pid: 7
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 1
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, next_process.pid: 0
 7:	3
 Process list after adding process with pid 9:
-pid: 3, processing_time 3, arrival_time: 2, processed_time: 2, quantum_time_used: 2 next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, quantum_time_used: 0 next_process.pid: 5
-pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, quantum_time_used: 0 next_process.pid: 6
-pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, quantum_time_used: 0 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, quantum_time_used: 0 next_process.pid: 7
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, quantum_time_used: 0 next_process.pid: 9
-pid: 9, processing_time 2, arrival_time: 8, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 2, next_process.pid: 1
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 0, next_process.pid: 0
 Process list after process with pid 3 has completed:
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, quantum_time_used: 0 next_process.pid: 5
-pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, quantum_time_used: 0 next_process.pid: 6
-pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, quantum_time_used: 0 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, quantum_time_used: 0 next_process.pid: 7
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, quantum_time_used: 0 next_process.pid: 9
-pid: 9, processing_time 2, arrival_time: 8, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 0, next_process.pid: 0
 8:	3
 Process list after adding process with pid 10:
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, quantum_time_used: 0 next_process.pid: 5
-pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, quantum_time_used: 0 next_process.pid: 6
-pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, quantum_time_used: 0 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, quantum_time_used: 0 next_process.pid: 7
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, quantum_time_used: 0 next_process.pid: 9
-pid: 9, processing_time 2, arrival_time: 8, processed_time: 0, quantum_time_used: 0 next_process.pid: 10
-pid: 10, processing_time 12, arrival_time: 9, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 0, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 0, next_process.pid: 0
 9:	1
 Process list after process with pid 1 has completed:
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, quantum_time_used: 0 next_process.pid: 5
-pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, quantum_time_used: 0 next_process.pid: 6
-pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, quantum_time_used: 0 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, quantum_time_used: 0 next_process.pid: 7
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, quantum_time_used: 0 next_process.pid: 9
-pid: 9, processing_time 2, arrival_time: 8, processed_time: 0, quantum_time_used: 0 next_process.pid: 10
-pid: 10, processing_time 12, arrival_time: 9, processed_time: 0, quantum_time_used: 0 next_process.pid: 0
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 3, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 0, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 0, next_process.pid: 0
 10:	1
 11:	4
 12:	4
@@ -112,13 +112,13 @@ pid: 10, processing_time 12, arrival_time: 9, processed_time: 0, quantum_time_us
 28:	8
 29:	9
 Process list after process with pid 9 has completed:
-pid: 10, processing_time 12, arrival_time: 9, processed_time: 0, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 3, quantum_time_used: 0 next_process.pid: 5
-pid: 5, processing_time 4, arrival_time: 4, processed_time: 3, quantum_time_used: 0 next_process.pid: 6
-pid: 6, processing_time 6, arrival_time: 5, processed_time: 3, quantum_time_used: 0 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 6, quantum_time_used: 0 next_process.pid: 7
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 3, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 3, quantum_time_used: 0 next_process.pid: 0
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 0, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 3, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 3, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 3, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 6, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 3, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 3, next_process.pid: 0
 30:	9
 31:	10
 32:	10
@@ -127,27 +127,27 @@ pid: 8, processing_time 10, arrival_time: 7, processed_time: 3, quantum_time_use
 35:	4
 36:	4
 Process list after process with pid 5 has completed:
-pid: 6, processing_time 6, arrival_time: 5, processed_time: 3, quantum_time_used: 0 next_process.pid: 2
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 6, quantum_time_used: 0 next_process.pid: 7
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 3, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 3, quantum_time_used: 0 next_process.pid: 10
-pid: 10, processing_time 12, arrival_time: 9, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 6, quantum_time_used: 0 next_process.pid: 0
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 3, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 6, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 3, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 3, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 6, next_process.pid: 0
 37:	5
 38:	6
 39:	6
 Process list after process with pid 6 has completed:
-pid: 2, processing_time 7, arrival_time: 1, processed_time: 6, quantum_time_used: 0 next_process.pid: 7
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 3, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 3, quantum_time_used: 0 next_process.pid: 10
-pid: 10, processing_time 12, arrival_time: 9, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 6, quantum_time_used: 0 next_process.pid: 0
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 6, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 3, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 3, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 6, next_process.pid: 0
 40:	6
 Process list after process with pid 2 has completed:
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 3, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 3, quantum_time_used: 0 next_process.pid: 10
-pid: 10, processing_time 12, arrival_time: 9, processed_time: 3, quantum_time_used: 0 next_process.pid: 4
-pid: 4, processing_time 8, arrival_time: 3, processed_time: 6, quantum_time_used: 0 next_process.pid: 0
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 3, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 3, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 3, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 6, next_process.pid: 0
 41:	2
 42:	7
 43:	7
@@ -160,15 +160,15 @@ pid: 4, processing_time 8, arrival_time: 3, processed_time: 6, quantum_time_used
 50:	10
 51:	4
 Process list after process with pid 4 has completed:
-pid: 7, processing_time 9, arrival_time: 6, processed_time: 6, quantum_time_used: 0 next_process.pid: 8
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 6, quantum_time_used: 0 next_process.pid: 10
-pid: 10, processing_time 12, arrival_time: 9, processed_time: 6, quantum_time_used: 0 next_process.pid: 0
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 6, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 6, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 6, next_process.pid: 0
 52:	4
 53:	7
 54:	7
 Process list after process with pid 7 has completed:
-pid: 8, processing_time 10, arrival_time: 7, processed_time: 6, quantum_time_used: 0 next_process.pid: 10
-pid: 10, processing_time 12, arrival_time: 9, processed_time: 6, quantum_time_used: 0 next_process.pid: 0
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 6, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 6, next_process.pid: 0
 55:	7
 56:	8
 57:	8
@@ -177,7 +177,7 @@ pid: 10, processing_time 12, arrival_time: 9, processed_time: 6, quantum_time_us
 60:	10
 61:	10
 Process list after process with pid 8 has completed:
-pid: 10, processing_time 12, arrival_time: 9, processed_time: 9, quantum_time_used: 0 next_process.pid: 0
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 9, next_process.pid: 0
 62:	8
 63:	10
 64:	10

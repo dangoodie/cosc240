@@ -1,6 +1,7 @@
 /*
- * An implementation of FCFS scheduling.
- * Author: David Paul (David.Paul@une.edu.au)
+ * An implementation of the Round Robin scheduling algorithm.
+ * Author: Daniel Gooden (dgooden@myune.edu.au)
+ * Modifies the fcfs.c file provided by David Paul
  */
 
 #include <stdio.h>
@@ -12,12 +13,11 @@ typedef struct rr_process {
   unsigned int processing_time;
   unsigned int arrival_time;
   unsigned int processed_time;
-  unsigned int quantum_time_used;
   struct rr_process *next_process;
 } rr_process;
 
 /* The list of all processes we know about.*/
-rr_process process_list = {0, 0, 0, 0, 0, NULL};
+rr_process process_list = {0, 0, 0, 0, NULL};
 
 /*
  * Prints out the list of all rr_processes after the given one.
@@ -28,9 +28,9 @@ void print_list(rr_process *node) {
   while (node->next_process) {
     rr_process *next = node->next_process;
     printf("pid: %d, processing_time %d, arrival_time: %d, processed_time: %d, "
-           "quantum_time_used: %d next_process.pid: %d\n",
+           "next_process.pid: %d\n",
            next->pid, next->processing_time, next->arrival_time,
-           next->processed_time, next->quantum_time_used,
+           next->processed_time,
            next->next_process ? next->next_process->pid : 0);
     node = node->next_process;
   }
@@ -74,7 +74,6 @@ void add_to_ready_queue(const process_initial process) {
   new_process->processing_time = process.processing_time;
   new_process->arrival_time = process.arrival_time;
   new_process->processed_time = 0;
-  new_process->quantum_time_used = 0;
   new_process->next_process = NULL;
 
   // Determine where in the queue it should be added
@@ -104,8 +103,11 @@ void add_to_ready_queue(const process_initial process) {
 /*
  * Determines the next process to the scheduled.
  * Implements a simple round-robin scheduling algorithm.
+ * The round-robin is determined by the QUANTUM constant.
+ * The process switches via a modulo operation on the processed_time.
+ *
  *  returns:
- *  The PID of the process to be scheduled next, or 0 if no process should be
+ * The PID of the process to be scheduled next, or 0 if no process should be
  * scheduled
  */
 
@@ -121,7 +123,6 @@ unsigned int get_next_scheduled_process() {
 
   // Execute the process for one unit of time
   current->processed_time++;
-  current->quantum_time_used++;
 
   unsigned int pid = current->pid;
 
@@ -139,14 +140,13 @@ unsigned int get_next_scheduled_process() {
   }
 
   // If the process has used up its quantum, move it to the end of the list
-  if (current->quantum_time_used == QUANTUM) {
+  if (current->processed_time % QUANTUM == 0) {
     remove_next(node);
     rr_process *end = &process_list;
     while (end->next_process) {
       end = end->next_process;
     }
     add_next(end, current);
-    current->quantum_time_used = 0;
   }
 
   return pid;
