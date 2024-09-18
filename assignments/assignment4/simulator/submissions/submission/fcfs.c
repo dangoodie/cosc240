@@ -3,9 +3,6 @@
  * Author: David Paul (David.Paul@une.edu.au)
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-
 /* The process details we're interested in for the FCFS algorithm.*/
 typedef struct fcfs_process {
   unsigned int pid;
