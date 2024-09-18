@@ -1,6 +1,7 @@
 /*
- * An implementation of FCFS scheduling.
- * Author: David Paul (David.Paul@une.edu.au)
+ * An implementation of Round Robin scheduling.
+ * Author: Daniel Gooden (dgooden@myune.edu.au)
+ * Modified from the FCFS implementation by David Paul
  */
 
 #include <stdio.h>
