@@ -13,11 +13,12 @@ typedef struct rr_process {
   unsigned int processing_time;
   unsigned int arrival_time;
   unsigned int processed_time;
+  unsigned int quantum_used;
   struct rr_process *next_process;
 } rr_process;
 
 /* The list of all processes we know about.*/
-rr_process process_list = {0, 0, 0, 0, NULL};
+rr_process process_list = {0, 0, 0, 0, 0, NULL};
 
 /*
  * Prints out the list of all rr_processes after the given one.
@@ -74,6 +75,7 @@ void add_to_ready_queue(const process_initial process) {
   new_process->processing_time = process.processing_time;
   new_process->arrival_time = process.arrival_time;
   new_process->processed_time = 0;
+  new_process->quantum_used = 0;
   new_process->next_process = NULL;
 
   // Determine where in the queue it should be added
@@ -123,6 +125,7 @@ unsigned int get_next_scheduled_process() {
 
   // Execute the process for one unit of time
   current->processed_time++;
+  current->quantum_used++;
 
   unsigned int pid = current->pid;
 
@@ -140,7 +143,7 @@ unsigned int get_next_scheduled_process() {
   }
 
   // If the process has used up its quantum, move it to the end of the list
-  if (current->processed_time % QUANTUM == 0) {
+  if (current->quantum_used == QUANTUM) {
     remove_next(node);
     rr_process *end = &process_list;
     while (end->next_process) {
