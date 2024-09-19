@@ -19,6 +19,9 @@ typedef struct constant_process {
 
 #define NUM_PRIORITY_QUEUES 4
 
+// The quantum for each priority level
+#define QUANTUM 3
+
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
@@ -27,6 +30,10 @@ constant_process priority_queues[NUM_PRIORITY_QUEUES] = {{0, 0, 0, 0, 0, NULL},
                                                          {0, 0, 0, 0, 0, NULL},
                                                          {0, 0, 0, 0, 0, NULL},
                                                          {0, 0, 0, 0, 0, NULL}};
+
+// Global variable to keep track of the current process
+constant_process *current = NULL;
+unsigned int priority_level = 0;
 /*
  * Prints out the list of all constant_processes after the given one.
  * parameters:
@@ -35,11 +42,11 @@ constant_process priority_queues[NUM_PRIORITY_QUEUES] = {{0, 0, 0, 0, 0, NULL},
 void print_list(constant_process *node) {
   while (node->next_process) {
     constant_process *next = node->next_process;
-    printf("pid: %d, processing_time %d, arrival_time: %d, processed_time: %d, "
-           "next_process.pid: %d\n",
-           next->pid, next->processing_time, next->arrival_time,
-           next->processed_time,
-           next->next_process ? next->next_process->pid : 0);
+    printf(
+        "\tpid: %d, processing_time %d, arrival_time: %d, processed_time: %d, "
+        "next_process.pid: %d\n",
+        next->pid, next->processing_time, next->arrival_time,
+        next->processed_time, next->next_process ? next->next_process->pid : 0);
     node = node->next_process;
   }
 }
@@ -106,8 +113,13 @@ void add_to_ready_queue(const process_initial process) {
 
   // If in debug mode, print out the process list after it has changed
   if (debug) {
+    if (current) {
+      printf("Current process: pid %d\n", current->pid);
+    }
+    printf("Process list after process with pid %d has been added:\n",
+           new_process->pid);
     for (int i = 0; i < NUM_PRIORITY_QUEUES; i++) {
-      printf("Priority queue %d:\n", i);
+      printf("- Priority queue %d:\n", i);
       print_list(&priority_queues[i]);
     }
   }
@@ -125,15 +137,8 @@ void add_to_ready_queue(const process_initial process) {
  * scheduled
  */
 
-// The quantum for each priority level
-#define QUANTUM 3
-
-// Global variable to keep track of the current process
-constant_process *current = NULL;
-
 unsigned int get_next_scheduled_process() {
   // Find the next process to schedule
-  unsigned int priority_level = 0;
   if (current == NULL) {
     for (int i = 0; i < NUM_PRIORITY_QUEUES; i++) {
       if (priority_queues[i].next_process) {
@@ -162,8 +167,9 @@ unsigned int get_next_scheduled_process() {
 
     // If in debug mode, print out the process list after it has changed
     if (debug) {
+      printf("Process list after process with pid %d has completed:\n", pid);
       for (int i = 0; i < NUM_PRIORITY_QUEUES; i++) {
-        printf("Priority queue %d:\n", i);
+        printf("- Priority queue %d:\n", i);
         print_list(&priority_queues[i]);
       }
     }
@@ -171,7 +177,7 @@ unsigned int get_next_scheduled_process() {
   }
 
   // If the process has used up its quantum, move it to the next priority queue
-  if (current->quantum_used == QUANTUM * priority_level + 1) {
+  if (current->quantum_used == QUANTUM * (priority_level + 1)) {
     // Determine the new priority level
     unsigned int new_priority_level =
         MIN(priority_level + 1, NUM_PRIORITY_QUEUES - 1);
