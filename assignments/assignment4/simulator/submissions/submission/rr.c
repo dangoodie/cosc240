@@ -113,7 +113,8 @@ void add_to_ready_queue(const process_initial process) {
  * scheduled
  */
 
-#define QUANTUM 3
+#define QUANTUM 3 // The quantum for the round-robin algorithm
+
 unsigned int get_next_scheduled_process() {
   rr_process *node = &process_list;
   if (node->next_process == NULL) {

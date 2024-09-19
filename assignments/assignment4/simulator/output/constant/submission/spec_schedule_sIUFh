@@ -1,0 +1,249 @@
+Time	PID
+Priority queue 0:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+Priority queue 2:
+Priority queue 3:
+0:	1
+Priority queue 0:
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+1:	2
+Priority queue 0:
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+2:	3
+Priority queue 0:
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+3:	4
+Priority queue 0:
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+4:	5
+Priority queue 0:
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 1, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+5:	6
+Priority queue 0:
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 1, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 1, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+6:	7
+Priority queue 0:
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 1, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 1, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 1, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+7:	8
+Priority queue 0:
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 1, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 1, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 1, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 1, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+8:	9
+Priority queue 0:
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 0, next_process.pid: 0
+Priority queue 1:
+pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 1, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 1, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 1, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 1, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 1, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+9:	10
+10:	1
+11:	1
+12:	1
+Priority queue 0:
+Priority queue 1:
+pid: 2, processing_time 7, arrival_time: 1, processed_time: 1, next_process.pid: 3
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 1, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 1, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 1, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 1, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 1, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 1, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+13:	1
+14:	2
+15:	2
+16:	2
+17:	2
+18:	2
+Priority queue 0:
+Priority queue 1:
+pid: 3, processing_time 3, arrival_time: 2, processed_time: 1, next_process.pid: 4
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 1, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 1, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 1, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 1, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 1, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 1, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+19:	2
+20:	3
+Priority queue 0:
+Priority queue 1:
+pid: 4, processing_time 8, arrival_time: 3, processed_time: 1, next_process.pid: 5
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 1, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 1, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 1, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 1, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 1, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+21:	3
+22:	4
+23:	4
+24:	4
+25:	4
+26:	4
+27:	4
+Priority queue 0:
+Priority queue 1:
+pid: 5, processing_time 4, arrival_time: 4, processed_time: 1, next_process.pid: 6
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 1, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 1, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 1, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 1, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+28:	4
+29:	5
+30:	5
+Priority queue 0:
+Priority queue 1:
+pid: 6, processing_time 6, arrival_time: 5, processed_time: 1, next_process.pid: 7
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 1, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 1, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 1, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+31:	5
+32:	6
+33:	6
+34:	6
+35:	6
+Priority queue 0:
+Priority queue 1:
+pid: 7, processing_time 9, arrival_time: 6, processed_time: 1, next_process.pid: 8
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 1, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 1, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+36:	6
+37:	7
+38:	7
+39:	7
+40:	7
+41:	7
+42:	7
+43:	7
+Priority queue 0:
+Priority queue 1:
+pid: 8, processing_time 10, arrival_time: 7, processed_time: 1, next_process.pid: 9
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 1, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+44:	7
+45:	8
+46:	8
+47:	8
+48:	8
+49:	8
+50:	8
+51:	8
+52:	8
+Priority queue 0:
+Priority queue 1:
+pid: 9, processing_time 2, arrival_time: 8, processed_time: 1, next_process.pid: 10
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+53:	8
+Priority queue 0:
+Priority queue 1:
+pid: 10, processing_time 12, arrival_time: 9, processed_time: 1, next_process.pid: 0
+Priority queue 2:
+Priority queue 3:
+54:	9
+55:	10
+56:	10
+57:	10
+58:	10
+59:	10
+60:	10
+61:	10
+62:	10
+63:	10
+64:	10
+Priority queue 0:
+Priority queue 1:
+Priority queue 2:
+Priority queue 3:
+65:	10
+Average turnaround time:	32.90
+Average wait time:	26.30
