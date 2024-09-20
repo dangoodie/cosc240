@@ -1,118 +1,13 @@
 Time	PID
-Process list after process with pid 1 has been added:
-- Priority queue 0:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-- Priority queue 2:
-- Priority queue 3:
 0:	1
-Current process: pid 1
-Process list after process with pid 2 has been added:
-- Priority queue 0:
-	pid: 2, processing_time 10, arrival_time: 1, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-- Priority queue 2:
-- Priority queue 3:
 1:	1
-Process list after process with pid 3 has been added:
-- Priority queue 0:
-	pid: 2, processing_time 10, arrival_time: 1, processed_time: 0, next_process.pid: 3
-	pid: 3, processing_time 4, arrival_time: 2, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-- Priority queue 3:
 2:	2
-Current process: pid 2
-Process list after process with pid 4 has been added:
-- Priority queue 0:
-	pid: 3, processing_time 4, arrival_time: 2, processed_time: 0, next_process.pid: 4
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-- Priority queue 3:
 3:	2
-Process list after process with pid 5 has been added:
-- Priority queue 0:
-	pid: 3, processing_time 4, arrival_time: 2, processed_time: 0, next_process.pid: 4
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-	pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 2, next_process.pid: 2
-	pid: 2, processing_time 10, arrival_time: 1, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-- Priority queue 3:
 4:	3
-Current process: pid 3
-Process list after process with pid 6 has been added:
-- Priority queue 0:
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-	pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 2, next_process.pid: 2
-	pid: 2, processing_time 10, arrival_time: 1, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-- Priority queue 3:
 5:	3
-Process list after process with pid 7 has been added:
-- Priority queue 0:
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-	pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 7
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 2, next_process.pid: 2
-	pid: 2, processing_time 10, arrival_time: 1, processed_time: 2, next_process.pid: 3
-	pid: 3, processing_time 4, arrival_time: 2, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-- Priority queue 3:
 6:	4
-Current process: pid 4
-Process list after process with pid 8 has been added:
-- Priority queue 0:
-	pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 7
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 8
-	pid: 8, processing_time 6, arrival_time: 7, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 2, next_process.pid: 2
-	pid: 2, processing_time 10, arrival_time: 1, processed_time: 2, next_process.pid: 3
-	pid: 3, processing_time 4, arrival_time: 2, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-- Priority queue 3:
 7:	4
-Process list after process with pid 9 has been added:
-- Priority queue 0:
-	pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 7
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 8
-	pid: 8, processing_time 6, arrival_time: 7, processed_time: 0, next_process.pid: 9
-	pid: 9, processing_time 14, arrival_time: 8, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 2, next_process.pid: 2
-	pid: 2, processing_time 10, arrival_time: 1, processed_time: 2, next_process.pid: 3
-	pid: 3, processing_time 4, arrival_time: 2, processed_time: 2, next_process.pid: 4
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-- Priority queue 3:
 8:	5
-Current process: pid 5
-Process list after process with pid 10 has been added:
-- Priority queue 0:
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 7
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 8
-	pid: 8, processing_time 6, arrival_time: 7, processed_time: 0, next_process.pid: 9
-	pid: 9, processing_time 14, arrival_time: 8, processed_time: 0, next_process.pid: 10
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 0, next_process.pid: 0
-- Priority queue 1:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 2, next_process.pid: 2
-	pid: 2, processing_time 10, arrival_time: 1, processed_time: 2, next_process.pid: 3
-	pid: 3, processing_time 4, arrival_time: 2, processed_time: 2, next_process.pid: 4
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-- Priority queue 3:
 9:	5
 10:	6
 11:	6
@@ -139,35 +34,8 @@ Process list after process with pid 10 has been added:
 32:	2
 33:	2
 34:	2
-Process list after process with pid 2 has completed:
-- Priority queue 0:
-- Priority queue 1:
-	pid: 3, processing_time 4, arrival_time: 2, processed_time: 2, next_process.pid: 4
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 2, next_process.pid: 5
-	pid: 5, processing_time 8, arrival_time: 4, processed_time: 2, next_process.pid: 6
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 2, next_process.pid: 7
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 2, next_process.pid: 8
-	pid: 8, processing_time 6, arrival_time: 7, processed_time: 2, next_process.pid: 9
-	pid: 9, processing_time 14, arrival_time: 8, processed_time: 2, next_process.pid: 10
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 10, next_process.pid: 0
-- Priority queue 3:
 35:	2
 36:	3
-Process list after process with pid 3 has completed:
-- Priority queue 0:
-- Priority queue 1:
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 2, next_process.pid: 5
-	pid: 5, processing_time 8, arrival_time: 4, processed_time: 2, next_process.pid: 6
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 2, next_process.pid: 7
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 2, next_process.pid: 8
-	pid: 8, processing_time 6, arrival_time: 7, processed_time: 2, next_process.pid: 9
-	pid: 9, processing_time 14, arrival_time: 8, processed_time: 2, next_process.pid: 10
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 10, next_process.pid: 0
-- Priority queue 3:
 37:	3
 38:	4
 39:	4
@@ -182,18 +50,6 @@ Process list after process with pid 3 has completed:
 48:	5
 49:	5
 50:	5
-Process list after process with pid 5 has completed:
-- Priority queue 0:
-- Priority queue 1:
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 2, next_process.pid: 7
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 2, next_process.pid: 8
-	pid: 8, processing_time 6, arrival_time: 7, processed_time: 2, next_process.pid: 9
-	pid: 9, processing_time 14, arrival_time: 8, processed_time: 2, next_process.pid: 10
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 10, next_process.pid: 4
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 10, next_process.pid: 0
-- Priority queue 3:
 51:	5
 52:	6
 53:	6
@@ -214,17 +70,6 @@ Process list after process with pid 5 has completed:
 68:	8
 69:	8
 70:	8
-Process list after process with pid 8 has completed:
-- Priority queue 0:
-- Priority queue 1:
-	pid: 9, processing_time 14, arrival_time: 8, processed_time: 2, next_process.pid: 10
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 2, next_process.pid: 0
-- Priority queue 2:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 10, next_process.pid: 4
-	pid: 4, processing_time 12, arrival_time: 3, processed_time: 10, next_process.pid: 6
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 10, next_process.pid: 7
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 10, next_process.pid: 0
-- Priority queue 3:
 71:	8
 72:	9
 73:	9
@@ -261,30 +106,11 @@ Process list after process with pid 8 has completed:
 104:	1
 105:	1
 106:	4
-Process list after process with pid 4 has completed:
-- Priority queue 0:
-- Priority queue 1:
-- Priority queue 2:
-	pid: 6, processing_time 15, arrival_time: 5, processed_time: 10, next_process.pid: 7
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 10, next_process.pid: 9
-	pid: 9, processing_time 14, arrival_time: 8, processed_time: 10, next_process.pid: 10
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 10, next_process.pid: 0
-- Priority queue 3:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 28, next_process.pid: 0
 107:	4
 108:	6
 109:	6
 110:	6
 111:	6
-Process list after process with pid 6 has completed:
-- Priority queue 0:
-- Priority queue 1:
-- Priority queue 2:
-	pid: 7, processing_time 18, arrival_time: 6, processed_time: 10, next_process.pid: 9
-	pid: 9, processing_time 14, arrival_time: 8, processed_time: 10, next_process.pid: 10
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 10, next_process.pid: 0
-- Priority queue 3:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 28, next_process.pid: 0
 112:	6
 113:	7
 114:	7
@@ -293,25 +119,10 @@ Process list after process with pid 6 has completed:
 117:	7
 118:	7
 119:	7
-Process list after process with pid 7 has completed:
-- Priority queue 0:
-- Priority queue 1:
-- Priority queue 2:
-	pid: 9, processing_time 14, arrival_time: 8, processed_time: 10, next_process.pid: 10
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 10, next_process.pid: 0
-- Priority queue 3:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 28, next_process.pid: 0
 120:	7
 121:	9
 122:	9
 123:	9
-Process list after process with pid 9 has completed:
-- Priority queue 0:
-- Priority queue 1:
-- Priority queue 2:
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 10, next_process.pid: 0
-- Priority queue 3:
-	pid: 1, processing_time 60, arrival_time: 0, processed_time: 28, next_process.pid: 0
 124:	9
 125:	10
 126:	10
@@ -362,12 +173,6 @@ Process list after process with pid 9 has completed:
 171:	1
 172:	1
 173:	1
-Process list after process with pid 1 has completed:
-- Priority queue 0:
-- Priority queue 1:
-- Priority queue 2:
-- Priority queue 3:
-	pid: 10, processing_time 60, arrival_time: 9, processed_time: 28, next_process.pid: 0
 174:	1
 175:	10
 176:	10
@@ -400,11 +205,6 @@ Process list after process with pid 1 has completed:
 203:	10
 204:	10
 205:	10
-Process list after process with pid 10 has completed:
-- Priority queue 0:
-- Priority queue 1:
-- Priority queue 2:
-- Priority queue 3:
 206:	10
 Average turnaround time:	100.20
 Average wait time:	79.50

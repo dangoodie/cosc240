@@ -1,89 +1,14 @@
 Time	PID
-Process list after adding process with pid 1:
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 0, next_process.pid: 0
 0:	1
-Process list after adding process with pid 2:
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 1, next_process.pid: 2
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 0, next_process.pid: 0
 1:	1
-Process list after adding process with pid 3:
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 2, next_process.pid: 2
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 0, next_process.pid: 3
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 0, next_process.pid: 0
 2:	1
-Process list after adding process with pid 4:
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 0, next_process.pid: 3
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 0, next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 0
 3:	2
-Process list after adding process with pid 5:
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 1, next_process.pid: 3
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 0, next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 0
 4:	2
-Process list after adding process with pid 6:
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 2, next_process.pid: 3
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 0, next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 0
 5:	2
-Process list after adding process with pid 7:
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 0, next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 2
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 3, next_process.pid: 7
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 0
 6:	3
-Process list after adding process with pid 8:
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 1, next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 2
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 3, next_process.pid: 7
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 8
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 0, next_process.pid: 0
 7:	3
-Process list after adding process with pid 9:
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 2, next_process.pid: 1
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 2
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 3, next_process.pid: 7
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 8
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 0, next_process.pid: 9
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 0, next_process.pid: 0
 8:	3
-Process list after adding process with pid 10:
-pid: 1, processing_time 5, arrival_time: 0, processed_time: 3, next_process.pid: 4
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 2
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 3, next_process.pid: 7
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 8
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 0, next_process.pid: 9
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 0, next_process.pid: 3
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 3, next_process.pid: 10
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 0, next_process.pid: 0
 9:	1
-Process list after process with pid 1 has completed:
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 0, next_process.pid: 5
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 0, next_process.pid: 6
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 0, next_process.pid: 2
-pid: 2, processing_time 10, arrival_time: 1, processed_time: 3, next_process.pid: 7
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 8
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 0, next_process.pid: 9
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 0, next_process.pid: 3
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 3, next_process.pid: 10
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 0, next_process.pid: 0
 10:	1
 11:	4
 12:	4
@@ -100,15 +25,6 @@ pid: 10, processing_time 20, arrival_time: 9, processed_time: 0, next_process.pi
 23:	2
 24:	2
 25:	2
-Process list after process with pid 2 has completed:
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 0, next_process.pid: 8
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 0, next_process.pid: 9
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 0, next_process.pid: 3
-pid: 3, processing_time 4, arrival_time: 2, processed_time: 3, next_process.pid: 10
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 0, next_process.pid: 4
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 3, next_process.pid: 5
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 3, next_process.pid: 6
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 3, next_process.pid: 0
 26:	2
 27:	7
 28:	7
@@ -119,14 +35,6 @@ pid: 6, processing_time 15, arrival_time: 5, processed_time: 3, next_process.pid
 33:	9
 34:	9
 35:	9
-Process list after process with pid 3 has completed:
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 0, next_process.pid: 4
-pid: 4, processing_time 12, arrival_time: 3, processed_time: 3, next_process.pid: 5
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 3, next_process.pid: 6
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 3, next_process.pid: 7
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 3, next_process.pid: 8
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 3, next_process.pid: 9
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 3, next_process.pid: 0
 36:	3
 37:	10
 38:	10
@@ -139,24 +47,11 @@ pid: 9, processing_time 14, arrival_time: 8, processed_time: 3, next_process.pid
 45:	4
 46:	4
 47:	4
-Process list after process with pid 4 has completed:
-pid: 5, processing_time 8, arrival_time: 4, processed_time: 3, next_process.pid: 6
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 3, next_process.pid: 7
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 3, next_process.pid: 8
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 3, next_process.pid: 9
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 3, next_process.pid: 10
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pid: 0
 48:	4
 49:	5
 50:	5
 51:	5
 52:	5
-Process list after process with pid 5 has completed:
-pid: 6, processing_time 15, arrival_time: 5, processed_time: 3, next_process.pid: 7
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 3, next_process.pid: 8
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 3, next_process.pid: 9
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 3, next_process.pid: 10
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pid: 0
 53:	5
 54:	6
 55:	6
@@ -169,11 +64,6 @@ pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pi
 62:	6
 63:	6
 64:	6
-Process list after process with pid 6 has completed:
-pid: 7, processing_time 18, arrival_time: 6, processed_time: 3, next_process.pid: 8
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 3, next_process.pid: 9
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 3, next_process.pid: 10
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pid: 0
 65:	6
 66:	7
 67:	7
@@ -189,16 +79,9 @@ pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pi
 77:	7
 78:	7
 79:	7
-Process list after process with pid 7 has completed:
-pid: 8, processing_time 6, arrival_time: 7, processed_time: 3, next_process.pid: 9
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 3, next_process.pid: 10
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pid: 0
 80:	7
 81:	8
 82:	8
-Process list after process with pid 8 has completed:
-pid: 9, processing_time 14, arrival_time: 8, processed_time: 3, next_process.pid: 10
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pid: 0
 83:	8
 84:	9
 85:	9
@@ -210,8 +93,6 @@ pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pi
 91:	9
 92:	9
 93:	9
-Process list after process with pid 9 has completed:
-pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pid: 0
 94:	9
 95:	10
 96:	10
@@ -229,7 +110,6 @@ pid: 10, processing_time 20, arrival_time: 9, processed_time: 3, next_process.pi
 108:	10
 109:	10
 110:	10
-Process list after process with pid 10 has completed:
 111:	10
 Average turnaround time:	57.10
 Average wait time:	45.90

@@ -7,6 +7,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define NUM_PRIORITY_QUEUES 4
+#define MAX_PROCESS_HISTORY 100
+
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
+// Global variable to keep track of the current process
+constant_process *current = NULL;
+unsigned int priority_level = 0;
+
 /* The process details we're interested in for the FCFS algorithm.*/
 typedef struct constant_process {
   unsigned int pid;
@@ -17,22 +27,46 @@ typedef struct constant_process {
   struct constant_process *next_process;
 } constant_process;
 
-#define NUM_PRIORITY_QUEUES 4
-
-// The quantum for each priority level
-
-#define MAX(a, b) ((a) > (b) ? (a) : (b))
-#define MIN(a, b) ((a) < (b) ? (a) : (b))
-
 /* Priotity queues */
 constant_process priority_queues[NUM_PRIORITY_QUEUES] = {{0, 0, 0, 0, 0, NULL},
                                                          {0, 0, 0, 0, 0, NULL},
                                                          {0, 0, 0, 0, 0, NULL},
                                                          {0, 0, 0, 0, 0, NULL}};
 
-// Global variable to keep track of the current process
-constant_process *current = NULL;
-unsigned int priority_level = 0;
+/* The process history to keep track of for each process */
+typedef struct process_history {
+  unsigned int pid;
+  unsigned int total_time_run; // Total time the process has been run
+  unsigned int wait_time;      // Time spent waiting for CPU
+  unsigned int
+      reschedule_count; // How many times the process has been rescheduled
+  double score;         // Learning score, updated frequently
+} process_history;
+
+process_history process_histories[MAX_PROCESS_HISTORY];
+
+// Function to initialise the process history
+void init_process_history(unsigned int pid) {
+  process_history *history = &process_histories[pid];
+  history->pid = pid;
+  history->total_time_run = 0;
+  history->wait_time = 0;
+  history->reschedule_count = 0;
+  history->score = 0.0;
+}
+
+// Function to calculate a process score based on its history
+double calculate_new_score(process_history *history) {
+  double waiting_factor = history->wait_time + 1;
+  double running_factor = history->total_time_run + 1;
+  double reschedule_penalty = history->reschedule_count + 1;
+
+  // Score formula
+  history->score =
+      (waiting_factor / running_factor) - (reschedule_penalty * 0.5);
+  return history->score;
+}
+
 /*
  * Prints out the list of all constant_processes after the given one.
  * parameters:
@@ -92,6 +126,9 @@ void add_to_ready_queue(const process_initial process) {
   new_process->quantum_used = 0;
   new_process->next_process = NULL;
 
+  // Initialise the process history
+  init_process_history(new_process->pid);
+
   // Determine where in the queue it should be added
   int priority_level = 0; // Default to highest priority
   constant_process *end = &priority_queues[priority_level];
@@ -125,6 +162,21 @@ void add_to_ready_queue(const process_initial process) {
 }
 
 /*
+ * Updates the wait time for all processes in the queue.
+ */
+void update_wait_times() {
+  for (int i = 0; i < NUM_PRIORITY_QUEUES; i++) {
+    constant_process *node = &priority_queues[i];
+    while (node->next_process) {
+      constant_process *next = node->next_process;
+      process_history *history = &process_histories[next->pid];
+      history->wait_time++;
+      node = next;
+    }
+  }
+
+
+/*
  * Determines the next process to the scheduled.
  * Implements a multi-level feedback queue with 4 priority levels.
  * Each priority level has a quantum of 3 units of time determined by the
@@ -148,6 +200,9 @@ unsigned int get_next_scheduled_process() {
     }
   }
 
+  // Update the wait time for all processes in the queue
+  update_wait_times();
+
   // Nothing to schedule so return 0
   if (current == NULL) {
     return 0;
@@ -159,10 +214,17 @@ unsigned int get_next_scheduled_process() {
 
   unsigned int pid = current->pid;
 
+  // Update the process history
+  process_history *history = &process_histories[pid];
+  history->total_time_run++;
+
   // If the process has finished, remove it from the list
   if (current->processed_time == current->processing_time) {
     free(current);
     current = NULL;
+
+    // Update the process history
+    history->score = calculate_new_score(history);
 
     // If in debug mode, print out the process list after it has changed
     if (debug) {
