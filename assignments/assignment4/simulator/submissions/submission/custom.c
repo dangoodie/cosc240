@@ -1,5 +1,5 @@
 /*
- * An implementation of the Round Robin scheduling algorithm.
+ * An implementation of the scoring scheduling algorithm.
  * Author: Daniel Gooden (dgooden@myune.edu.au)
  * Modifies the fcfs.c file provided by David Paul
  */
@@ -7,15 +7,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUM_PRIORITY_QUEUES 4
+#define NUM_PRIORITY_QUEUES 2
 #define MAX_PROCESS_HISTORY 100
 
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
-
-// Global variable to keep track of the current process
-constant_process *current = NULL;
-unsigned int priority_level = 0;
 
 /* The process details we're interested in for the FCFS algorithm.*/
 typedef struct constant_process {
@@ -27,38 +23,109 @@ typedef struct constant_process {
   struct constant_process *next_process;
 } constant_process;
 
-/* Priotity queues */
-constant_process priority_queues[NUM_PRIORITY_QUEUES] = {{0, 0, 0, 0, 0, NULL},
-                                                         {0, 0, 0, 0, 0, NULL},
-                                                         {0, 0, 0, 0, 0, NULL},
-                                                         {0, 0, 0, 0, 0, NULL}};
+/* Priority queues */
+constant_process priority_queues[NUM_PRIORITY_QUEUES] = {
+    {0, 0, 0, 0, 0, NULL},
+    {0, 0, 0, 0, 0, NULL},
+};
+
+// Global variable to keep track of the current process
+constant_process *current = NULL;
+unsigned int priority_level = 0;
 
 /* The process history to keep track of for each process */
 typedef struct process_history {
   unsigned int pid;
-  unsigned int total_time_run; // Total time the process has been run
-  unsigned int wait_time;      // Time spent waiting for CPU
+  unsigned int *total_time_run; // Pointer to the total time the process has run
+  unsigned int wait_time;       // Time spent waiting for CPU
   unsigned int
       reschedule_count; // How many times the process has been rescheduled
   double score;         // Learning score, updated frequently
+  struct process_history *next;
 } process_history;
 
-process_history process_histories[MAX_PROCESS_HISTORY];
+process_history *process_histories = NULL;
 
 // Function to initialise the process history
-void init_process_history(unsigned int pid) {
-  process_history *history = &process_histories[pid];
-  history->pid = pid;
-  history->total_time_run = 0;
-  history->wait_time = 0;
-  history->reschedule_count = 0;
-  history->score = 0.0;
+void init_process_history(constant_process *process) {
+  if (process_histories == NULL) {
+    // Allocate sentinel node (if necessary)
+    process_histories = malloc(sizeof(process_history));
+    if (!process_histories) {
+      perror("Failed to allocate memory for process history");
+      exit(1); // Handle memory allocation failure
+    }
+    process_histories->pid = 0; // Sentinel node has no real PID
+    process_histories->total_time_run = NULL;
+    process_histories->wait_time = 0;
+    process_histories->reschedule_count = 0;
+    process_histories->score = 0.0;
+    process_histories->next = NULL; // List initially empty after sentinel
+  }
+
+  // Now add the new process history after the sentinel node
+  process_history *new_history = malloc(sizeof(process_history));
+  if (!new_history) {
+    perror("Failed to allocate memory for process history");
+    exit(1);
+  }
+
+  new_history->pid = process->pid;
+  new_history->total_time_run =
+      &process->processed_time; // Pointer to process's processed_time
+  new_history->wait_time = 0;
+  new_history->reschedule_count = 0;
+  new_history->score = 0.0;
+
+  // Insert new history after the sentinel node
+  new_history->next = process_histories->next;
+  process_histories->next = new_history;
+}
+
+// Function to get the process history for a given PID
+process_history *get_process_history(unsigned int pid) {
+  process_history *history =
+      process_histories->next; // Start after the sentinel
+
+  // Traverse the list to find the history with the matching PID
+  while (history != NULL) {
+    if (history->pid == pid) {
+      return history; // Found the process history
+    }
+    history = history->next;
+  }
+
+  return NULL; // History not found
+}
+
+// Function to free the process history for a given PID
+void free_process_history(unsigned int pid) {
+  process_history *prev = process_histories; // Start with sentinel
+  process_history *current = process_histories->next;
+
+  // Traverse the list to find the process history to free
+  while (current != NULL) {
+    if (current->pid == pid) {
+      // Found the process, remove it from the list
+      prev->next = current->next;
+      free(current); // Free the process history
+      return;
+    }
+    prev = current;
+    current = current->next;
+  }
 }
 
 // Function to calculate a process score based on its history
 double calculate_new_score(process_history *history) {
+  if (history->total_time_run == NULL) {
+    fprintf(stderr, "Error: total_time_run pointer is NULL for PID %d\n",
+            history->pid);
+    return -1.0; // Or some other default/fallback value
+  }
+
   double waiting_factor = history->wait_time + 1;
-  double running_factor = history->total_time_run + 1;
+  double running_factor = *history->total_time_run + 1;
   double reschedule_penalty = history->reschedule_count + 1;
 
   // Score formula
@@ -119,6 +186,10 @@ constant_process *remove_next(constant_process *node) {
 void add_to_ready_queue(const process_initial process) {
   // Construct the new constant_process
   constant_process *new_process = malloc(sizeof(constant_process));
+  if (!new_process) {
+    perror("Failed to allocate memory for new process");
+    exit(1);
+  }
   new_process->pid = process.pid;
   new_process->processing_time = process.processing_time;
   new_process->arrival_time = process.arrival_time;
@@ -127,10 +198,10 @@ void add_to_ready_queue(const process_initial process) {
   new_process->next_process = NULL;
 
   // Initialise the process history
-  init_process_history(new_process->pid);
+  init_process_history(new_process);
 
   // Determine where in the queue it should be added
-  int priority_level = 0; // Default to highest priority
+  int priority_level = 0; // Default to fast queue
   constant_process *end = &priority_queues[priority_level];
   // Skip past processes with an earlier arrival time
   while (end->next_process &&
@@ -162,6 +233,25 @@ void add_to_ready_queue(const process_initial process) {
 }
 
 /*
+ * Moves the process with the given PID to the smart queue.
+ */
+void move_to_smart_queue(constant_process *process) {
+  constant_process *end = &priority_queues[1]; // Q2 (smart queue)
+
+  while (end->next_process) {
+    end = end->next_process;
+  }
+
+  // Move process to the end of the smart queue
+  process->next_process = NULL;
+  end->next_process = process;
+
+  if (debug) {
+    printf("Process with PID %d moved to Smart Queue (Q2)\n", process->pid);
+  }
+}
+
+/*
  * Updates the wait time for all processes in the queue.
  */
 void update_wait_times() {
@@ -169,90 +259,119 @@ void update_wait_times() {
     constant_process *node = &priority_queues[i];
     while (node->next_process) {
       constant_process *next = node->next_process;
-      process_history *history = &process_histories[next->pid];
-      history->wait_time++;
+      process_history *history =
+          get_process_history(next->pid); // Use get_process_history()
+      if (history) {
+        history->wait_time++;
+      }
       node = next;
     }
   }
+}
 
+/*
+ * Selects the best process from the smart queue based on the process history.
+ * The process with the highest score is selected.
+ * Returns the selected process.
+ */
+constant_process *select_best_process_from_smart_queue() {
+  constant_process *best_process = NULL;
+  double best_score = -1.0;
+
+  constant_process *node =
+      priority_queues[1].next_process; // Start with Q2 (smart queue)
+  while (node != NULL) {
+    process_history *history =
+        get_process_history(node->pid); // Use get_process_history()
+    if (history == NULL) {
+      fprintf(stderr, "Error: No process history for PID %d\n", node->pid);
+      break; // Exit the loop or handle it appropriately
+    }
+
+    double score = calculate_new_score(history); // Recalculate score
+
+    if (score > best_score) {
+      best_score = score;
+      best_process = node;
+    }
+
+    node = node->next_process;
+  }
+
+  // Remove the best process from the smart queue
+  if (best_process != NULL) {
+    constant_process *prev = &priority_queues[1];
+    while (prev->next_process != best_process) {
+      prev = prev->next_process;
+    }
+    prev->next_process = best_process->next_process; // Remove from queue
+    best_process->next_process = NULL;
+  }
+
+  if (debug && best_process != NULL) {
+    printf("Best process selected from Smart Queue: PID %d with score %.2f\n",
+           best_process->pid, best_score);
+  }
+
+  return best_process;
+}
 
 /*
  * Determines the next process to the scheduled.
- * Implements a multi-level feedback queue with 4 priority levels.
- * Each priority level has a quantum of 3 units of time determined by the
- * QUANTUM constant. 3k units of time are given to the each process in the kth
- * priority level before moving to the next priority level.
- *
+ * Implements a scoring algorithm to determine the best process to
+ * schedule next.
  *  returns:
  * The PID of the process to be scheduled next, or 0 if no process should be
  * scheduled
  */
-
 unsigned int get_next_scheduled_process() {
-  // Find the next process to schedule
   if (current == NULL) {
-    for (int i = 0; i < NUM_PRIORITY_QUEUES; i++) {
-      if (priority_queues[i].next_process) {
-        current = remove_next(&priority_queues[i]);
-        priority_level = i;
-        break;
-      }
+    // First check Fast Queue (Q1)
+    if (priority_queues[0].next_process) {
+      current = remove_next(&priority_queues[0]);
+      priority_level = 0;
+    }
+    // If no process in Fast Queue, check Smart Queue (Q2)
+    else if (priority_queues[1].next_process) {
+      current = select_best_process_from_smart_queue();
+      priority_level = 1;
     }
   }
 
-  // Update the wait time for all processes in the queue
-  update_wait_times();
-
-  // Nothing to schedule so return 0
+  // If no process found, return 0
   if (current == NULL) {
     return 0;
   }
 
-  // Execute the process for one unit of time
+  // Update wait times for all processes
+  update_wait_times();
+
+  // Run the current process
   current->processed_time++;
   current->quantum_used++;
 
   unsigned int pid = current->pid;
+  process_history *history =
+      get_process_history(pid); // Use get_process_history()
+  if (history == NULL) {
+    fprintf(stderr, "Error: No process history for PID %d\n", pid);
+  }
 
-  // Update the process history
-  process_history *history = &process_histories[pid];
-  history->total_time_run++;
-
-  // If the process has finished, remove it from the list
+  // Check if the process is done
   if (current->processed_time == current->processing_time) {
     free(current);
+    free_process_history(pid);
     current = NULL;
-
-    // Update the process history
-    history->score = calculate_new_score(history);
-
-    // If in debug mode, print out the process list after it has changed
-    if (debug) {
-      printf("Process list after process with pid %d has completed:\n", pid);
-      for (int i = 0; i < NUM_PRIORITY_QUEUES; i++) {
-        printf("- Priority queue %d:\n", i);
-        print_list(&priority_queues[i]);
-      }
-    }
     return pid;
   }
 
-  // If the process has used up its quantum, move it to the next priority queue
-  if (current->quantum_used ==
-      2 * ((priority_level + 1) * (priority_level + 1))) {
-    // Determine the new priority level
-    unsigned int new_priority_level =
-        MIN(priority_level + 1, NUM_PRIORITY_QUEUES - 1);
-
-    // Move the process to the new priority level
-    constant_process *end = &priority_queues[new_priority_level];
-    while (end->next_process) {
-      end = end->next_process;
-    }
+  // Move process to Smart Queue (Q2) if quantum exceeded
+  if (current->quantum_used >=
+      (priority_level + 1) * 2) { // Quantum of 2 for Q1, 4 for Q2
+    move_to_smart_queue(current);
     current->quantum_used = 0;
-    add_next(end, current);
     current = NULL;
   }
 
-  return pid; // Return the PID of the process that was scheduled
+  return pid;
 }
