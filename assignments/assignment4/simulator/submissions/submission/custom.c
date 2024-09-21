@@ -4,6 +4,7 @@
  * Modifies the fcfs.c file provided by David Paul
  */
 
+#include <float.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,7 +14,7 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
-/* The process details we're interested in for the FCFS algorithm.*/
+/* The process details we're interested in */
 typedef struct constant_process {
   unsigned int pid;
   unsigned int processing_time;
@@ -116,21 +117,29 @@ void free_process_history(unsigned int pid) {
   }
 }
 
+#define REMAINING_TIME_FACTOR 1.2
+#define RESCHEDULE_PENALTY 0.5
+
 // Function to calculate a process score based on its history
-double calculate_new_score(process_history *history) {
+double calculate_new_score(process_history *history,
+                           constant_process *process) {
   if (history->total_time_run == NULL) {
     fprintf(stderr, "Error: total_time_run pointer is NULL for PID %d\n",
             history->pid);
-    return -1.0; // Or some other default/fallback value
+    return -DBL_MAX; // Return negative infinity
   }
 
   double waiting_factor = history->wait_time + 1;
   double running_factor = *history->total_time_run + 1;
   double reschedule_penalty = history->reschedule_count + 1;
+  double remaining_time_factor =
+      (double)(process->processing_time + 1) /
+      (process->processing_time - process->processed_time + 1);
 
-  // Score formula
-  history->score =
-      (waiting_factor / running_factor) - (reschedule_penalty * 0.5);
+  // Score formula (higher is better)
+  history->score = (waiting_factor / running_factor) +
+                   (remaining_time_factor * REMAINING_TIME_FACTOR) -
+                   (reschedule_penalty * RESCHEDULE_PENALTY);
   return history->score;
 }
 
@@ -276,7 +285,7 @@ void update_wait_times() {
  */
 constant_process *select_best_process_from_smart_queue() {
   constant_process *best_process = NULL;
-  double best_score = -1.0;
+  double best_score = -DBL_MAX;
 
   constant_process *node =
       priority_queues[1].next_process; // Start with Q2 (smart queue)
@@ -288,7 +297,7 @@ constant_process *select_best_process_from_smart_queue() {
       break; // Exit the loop or handle it appropriately
     }
 
-    double score = calculate_new_score(history); // Recalculate score
+    double score = calculate_new_score(history, node); // Recalculate score
 
     if (score > best_score) {
       best_score = score;
@@ -369,6 +378,7 @@ unsigned int get_next_scheduled_process() {
   if (current->quantum_used >=
       (priority_level + 1) * 2) { // Quantum of 2 for Q1, 4 for Q2
     move_to_smart_queue(current);
+    history->reschedule_count++;
     current->quantum_used = 0;
     current = NULL;
   }
