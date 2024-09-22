@@ -117,8 +117,8 @@ void free_process_history(unsigned int pid) {
   }
 }
 
-#define REMAINING_TIME_FACTOR 1.2
-#define RESCHEDULE_PENALTY 0.5
+#define REMAINING_TIME_WEIGHT 1.2
+#define RESCHEDULE_WEIGHT 0.5
 
 // Function to calculate a process score based on its history
 double calculate_new_score(process_history *history,
@@ -138,8 +138,8 @@ double calculate_new_score(process_history *history,
 
   // Score formula (higher is better)
   history->score = (waiting_factor / running_factor) +
-                   (remaining_time_factor * REMAINING_TIME_FACTOR) -
-                   (reschedule_penalty * RESCHEDULE_PENALTY);
+                   (remaining_time_factor * REMAINING_TIME_WEIGHT) -
+                   (reschedule_penalty * RESCHEDULE_WEIGHT);
   return history->score;
 }
 
