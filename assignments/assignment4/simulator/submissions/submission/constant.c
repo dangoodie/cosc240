@@ -1,5 +1,5 @@
 /*
- * An implementation of the Round Robin scheduling algorithm.
+ * An implementation of the Constant scheduling algorithm.
  * Author: Daniel Gooden (dgooden@myune.edu.au)
  * Modifies the fcfs.c file provided by David Paul
  */
@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* The process details we're interested in for the FCFS algorithm.*/
+/* The process details we're interested in */
 typedef struct constant_process {
   unsigned int pid;
   unsigned int processing_time;
@@ -25,7 +25,7 @@ typedef struct constant_process {
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
-/* Priotity queues */
+/* Priority queues */
 constant_process priority_queues[NUM_PRIORITY_QUEUES] = {{0, 0, 0, 0, 0, NULL},
                                                          {0, 0, 0, 0, 0, NULL},
                                                          {0, 0, 0, 0, 0, NULL},

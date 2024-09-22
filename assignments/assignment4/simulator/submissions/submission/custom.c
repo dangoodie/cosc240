@@ -15,23 +15,23 @@
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 /* The process details we're interested in */
-typedef struct constant_process {
+typedef struct custom_process {
   unsigned int pid;
   unsigned int processing_time;
   unsigned int arrival_time;
   unsigned int processed_time;
   unsigned int quantum_used;
-  struct constant_process *next_process;
-} constant_process;
+  struct custom_process *next_process;
+} custom_process;
 
 /* Priority queues */
-constant_process priority_queues[NUM_PRIORITY_QUEUES] = {
+custom_process priority_queues[NUM_PRIORITY_QUEUES] = {
     {0, 0, 0, 0, 0, NULL},
     {0, 0, 0, 0, 0, NULL},
 };
 
 // Global variable to keep track of the current process
-constant_process *current = NULL;
+custom_process *current = NULL;
 unsigned int priority_level = 0;
 
 /* The process history to keep track of for each process */
@@ -48,7 +48,7 @@ typedef struct process_history {
 process_history *process_histories = NULL;
 
 // Function to initialise the process history
-void init_process_history(constant_process *process) {
+void init_process_history(custom_process *process) {
   if (process_histories == NULL) {
     // Allocate sentinel node (if necessary)
     process_histories = malloc(sizeof(process_history));
@@ -122,7 +122,7 @@ void free_process_history(unsigned int pid) {
 
 // Function to calculate a process score based on its history
 double calculate_new_score(process_history *history,
-                           constant_process *process) {
+                           custom_process *process) {
   if (history->total_time_run == NULL) {
     fprintf(stderr, "Error: total_time_run pointer is NULL for PID %d\n",
             history->pid);
@@ -144,13 +144,13 @@ double calculate_new_score(process_history *history,
 }
 
 /*
- * Prints out the list of all constant_processes after the given one.
+ * Prints out the list of all custom_processes after the given one.
  * parameters:
- *   node: The constant_process to print all later processes from
+ *   node: The custom_process to print all later processes from
  */
-void print_list(constant_process *node) {
+void print_list(custom_process *node) {
   while (node->next_process) {
-    constant_process *next = node->next_process;
+    custom_process *next = node->next_process;
     printf(
         "\tpid: %d, processing_time %d, arrival_time: %d, processed_time: %d, "
         "next_process.pid: %d\n",
@@ -161,12 +161,12 @@ void print_list(constant_process *node) {
 }
 
 /*
- * Adds the constant_process pointed to by next to be immediately after node.
+ * Adds the custom_process pointed to by next to be immediately after node.
  * parameters:
- *   node: The constant_process to add the next fcfs_process after
+ *   node: The custom_process to add the next fcfs_process after
  *   next: The new next_process for node
  */
-void add_next(constant_process *node, constant_process *next) {
+void add_next(custom_process *node, custom_process *next) {
   next->next_process = node->next_process;
   node->next_process = next;
 }
@@ -174,12 +174,12 @@ void add_next(constant_process *node, constant_process *next) {
 /*
  * Removes the next_process after the given node.
  * If the next_process has a next_process, that next_process becomes node's
- * next_process. parameters: node: The constant_process to remove the immediate
- * next_process from returns: The constant_process removed from next to the
+ * next_process. parameters: node: The custom_process to remove the immediate
+ * next_process from returns: The custom_process removed from next to the
  * given node
  */
-constant_process *remove_next(constant_process *node) {
-  constant_process *next = node->next_process;
+custom_process *remove_next(custom_process *node) {
+  custom_process *next = node->next_process;
   if (next) {
     node->next_process = next->next_process;
   }
@@ -193,8 +193,8 @@ constant_process *remove_next(constant_process *node) {
  *   process - the process to add to the ready queue
  */
 void add_to_ready_queue(const process_initial process) {
-  // Construct the new constant_process
-  constant_process *new_process = malloc(sizeof(constant_process));
+  // Construct the new custom_process
+  custom_process *new_process = malloc(sizeof(custom_process));
   if (!new_process) {
     perror("Failed to allocate memory for new process");
     exit(1);
@@ -211,7 +211,7 @@ void add_to_ready_queue(const process_initial process) {
 
   // Determine where in the queue it should be added
   int priority_level = 0; // Default to fast queue
-  constant_process *end = &priority_queues[priority_level];
+  custom_process *end = &priority_queues[priority_level];
   // Skip past processes with an earlier arrival time
   while (end->next_process &&
          end->next_process->arrival_time < new_process->arrival_time) {
@@ -244,8 +244,8 @@ void add_to_ready_queue(const process_initial process) {
 /*
  * Moves the process with the given PID to the smart queue.
  */
-void move_to_smart_queue(constant_process *process) {
-  constant_process *end = &priority_queues[1]; // Q2 (smart queue)
+void move_to_smart_queue(custom_process *process) {
+  custom_process *end = &priority_queues[1]; // Q2 (smart queue)
 
   while (end->next_process) {
     end = end->next_process;
@@ -265,9 +265,9 @@ void move_to_smart_queue(constant_process *process) {
  */
 void update_wait_times() {
   for (int i = 0; i < NUM_PRIORITY_QUEUES; i++) {
-    constant_process *node = &priority_queues[i];
+    custom_process *node = &priority_queues[i];
     while (node->next_process) {
-      constant_process *next = node->next_process;
+      custom_process *next = node->next_process;
       process_history *history =
           get_process_history(next->pid); // Use get_process_history()
       if (history) {
@@ -283,11 +283,11 @@ void update_wait_times() {
  * The process with the highest score is selected.
  * Returns the selected process.
  */
-constant_process *select_best_process_from_smart_queue() {
-  constant_process *best_process = NULL;
+custom_process *select_best_process_from_smart_queue() {
+  custom_process *best_process = NULL;
   double best_score = -DBL_MAX;
 
-  constant_process *node =
+  custom_process *node =
       priority_queues[1].next_process; // Start with Q2 (smart queue)
   while (node != NULL) {
     process_history *history =
@@ -309,7 +309,7 @@ constant_process *select_best_process_from_smart_queue() {
 
   // Remove the best process from the smart queue
   if (best_process != NULL) {
-    constant_process *prev = &priority_queues[1];
+    custom_process *prev = &priority_queues[1];
     while (prev->next_process != best_process) {
       prev = prev->next_process;
     }
